@@ -124,7 +124,7 @@ const readData = (paragraph) => {
         },
     }).then( response => {
         response.text().then(body => {
-            paragraph.innerHTML = "Valor encontrado = "+body
+            paragraph.innerHTML = "Valor encontrado = "+ body
         }).catch(err => {
             paragraph.innerHTML = `
             <div class="alert alert-warning" role="alert">

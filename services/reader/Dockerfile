@@ -1,6 +1,8 @@
-FROM golang:1.16
-WORKDIR /go/src/github.com/PicPay/picpay-jr-devops-challenge/services/go
-ADD . /go/src/github.com/PicPay/picpay-jr-devops-challenge/services/go
-
+FROM golang:1.17-alpine as base
 EXPOSE 8080
+WORKDIR /app
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+COPY *.go ./
 CMD ["go","run","main.go"]

@@ -2,7 +2,7 @@ package main
 
 import (
     "fmt"
-    "github.com/go-redis/redis"
+    "github.com/go-redis/redis/v8"
     "github.com/rs/cors"
     "log"
     "net/http"
@@ -33,6 +33,6 @@ func main() {
         AllowedHeaders: []string{"*"},
     }).Handler(mux)
 
-    log.Fatal(http.ListenAndServe(":8080", handler))
+    log.Fatal(http.ListenAndServe("0.0.0.0:8080", handler))
 
 }
